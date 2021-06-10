@@ -152,6 +152,7 @@ class MainActivity : AppCompatActivity() {
 
         task.addOnSuccessListener {
             mainViewModel.updateSubscribedToSleepData(false)
+            pendingIntent.cancel()
             Log.d(TAG, "Successfully unsubscribed to sleep data.")
         }
         task.addOnFailureListener { exception ->
